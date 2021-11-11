@@ -28,19 +28,19 @@
  * if ON (=1) it enables the Tracer and Logging functionality
  * if OFF (=0) the Tracer is OFF (lower current consumption)
  */
-#define GNSE_ADVANCED_TRACER_ENABLE 1
+#define GNSE_ADVANCED_TRACER_ENABLE 0
 
 /**
  * if ON (=1) it enables the debugger use in low power mode
  * if OFF (=0) the debugger is OFF (lower current consumption)
  */
-#define DEBUGGER_ON 1
+#define DEBUGGER_ON 0
 
 /*
  * if ON (=1) the independent watchdog timer is used (reset MCU after inactivity)
  * if OFF (=0) the independent watchdog timer is not used
  */
-#define IWDG_TIMER_ON 0
+#define IWDG_TIMER_ON 1
 
 #define GNSE_HW_VERSION_MAIN (0x01U)
 #define GNSE_HW_VERSION_SUB1 (0x01U)
@@ -49,7 +49,7 @@
 #define GNSE_FW_VERSION_SUB1 (0x00U)
 
 #define TX_HEARTBEAT_PORT (0x01U)
-#define TX_HEARTBEAT_BUFFER_SIZE (0x05U)
+#define TX_HEARTBEAT_BUFFER_SIZE (0x03U)
 #define TX_TEMPERATURE_SENSOR_PORT (0x02U)
 #define TX_TEMPERATURE_SENSOR_BUFFER_SIZE (0x04U)
 #define TX_ACCELEROMETER_SENSOR_PORT (0x03U)
@@ -68,11 +68,12 @@
 #define RX_LED_PORT (0x06U)
 #define RX_LED_BUFFER_SIZE (0x01U)
 
-#define HEARTBEAT_TX_DUTYCYCLE_DEFAULT_S (10U)
+#define JOIN_TX_DUTYCYCLE_DEFAULT_S (30U)
+#define HEARTBEAT_TX_DUTYCYCLE_DEFAULT_S (25U)
 #define HEARTBEAT_DUTYCYCLE_MAX_MINUTES (200U)
 #define HEARTBEAT_DUTYCYCLE_MIN_MINUTES (1U)
 
-#define TEMPERATURE_TX_DUTYCYCLE_DEFAULT_S (20U)
+#define TEMPERATURE_TX_DUTYCYCLE_DEFAULT_S (60U)
 #define TEMPERATURE_DUTYCYCLE_MAX_MINUTES (200U)
 #define TEMPERATURE_DUTYCYCLE_MIN_MINUTES (1U)
 
