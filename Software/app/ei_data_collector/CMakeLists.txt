@@ -1,0 +1,51 @@
+#-------------------
+# Main elf
+#-------------------
+file(GLOB MAIN_SRC
+    "${PROJECT_SOURCE_DIR}/app/app_common/*.c"
+    "${PROJECT_SOURCE_DIR}/app/ei_data_collector/*.c"
+    "${PROJECT_SOURCE_DIR}/target/*.c"
+    "${PROJECT_SOURCE_DIR}/lib/GNSE_BSP/*.c"
+    "${PROJECT_SOURCE_DIR}/lib/GNSE_HAL/*.c"
+    "${PROJECT_SOURCE_DIR}/lib/SPIFFS/*.c"
+    "${PROJECT_SOURCE_DIR}/lib/Utilities/*.c"
+    "${PROJECT_SOURCE_DIR}/lib/Utilities/baremetal/*.c"
+    "${PROJECT_SOURCE_DIR}/lib/GNSE_TRACER/adv_tracer/*.c"
+    "${PROJECT_SOURCE_DIR}/lib/GNSE_TRACER/tiny_printf/*.c"
+    "${PROJECT_SOURCE_DIR}/lib/SHTC3/*.c"
+    "${PROJECT_SOURCE_DIR}/lib/MX25R1635/*.c"
+    "${PROJECT_SOURCE_DIR}/lib/LIS2DH12/*.c"
+    "${PROJECT_SOURCE_DIR}/lib/BUZZER/*.c"
+    )
+set(SOURCES
+    ${MAIN_SRC}
+    ${PROJECT_SOURCE_DIR}/${STARTUP_FILE}
+    ${PROJECT_SOURCE_DIR}/${SYSTEM_FILE}
+    )
+add_executable(${PROJECT_NAME}.elf
+    ${SOURCES}
+    )
+target_include_directories(${PROJECT_NAME}.elf
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/target
+    ${PROJECT_SOURCE_DIR}/app
+    ${PROJECT_SOURCE_DIR}/app/app_common
+    ${PROJECT_SOURCE_DIR}/app/ei_data_collector
+    ${PROJECT_SOURCE_DIR}/app/ei_data_collector/conf
+    ${PROJECT_SOURCE_DIR}/lib/GNSE_BSP
+    ${PROJECT_SOURCE_DIR}/lib/GNSE_HAL
+    ${PROJECT_SOURCE_DIR}/lib/SPIFFS
+    ${PROJECT_SOURCE_DIR}/lib/Utilities
+    ${PROJECT_SOURCE_DIR}/lib/Utilities/baremetal
+    ${PROJECT_SOURCE_DIR}/lib/GNSE_TRACER
+    ${PROJECT_SOURCE_DIR}/lib/GNSE_TRACER/adv_tracer
+    ${PROJECT_SOURCE_DIR}/lib/GNSE_TRACER/tiny_printf
+    ${PROJECT_SOURCE_DIR}/lib/SHTC3
+    ${PROJECT_SOURCE_DIR}/lib/MX25R1635
+    ${PROJECT_SOURCE_DIR}/lib/LIS2DH12
+    ${PROJECT_SOURCE_DIR}/lib/BUZZER
+    )
+target_link_libraries(${PROJECT_NAME}.elf
+    PUBLIC
+    hal
+    )
