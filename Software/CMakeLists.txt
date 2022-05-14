@@ -46,7 +46,9 @@ set (APP_LIST
 "secure_element_lorawan"
 "basic_azurertos"
 "sensors_lorawan"
-"basic_fuota")
+"basic_fuota"
+"ei_data_collector"
+"ei_inferencing_example")
 #-------------------
 # MCU Setup
 #-------------------
@@ -85,6 +87,11 @@ set(OBJECT_GEN_FLAGS " \
 #-------------------
 set(CMAKE_C_FLAGS " \
 " CACHE INTERNAL "C Compiler options")
+#-------------------
+# CXXFLAGS
+#-------------------
+set(CMAKE_CXX_FLAGS " \
+" CACHE INTERNAL "CXX Compiler options")
 #-------------------
 # ASMFLAGS for cross
 #-------------------
@@ -137,6 +144,12 @@ ${FLOAT_SPEC} \
 # CFLAGS for cross
 #-------------------
 string(APPEND CMAKE_C_FLAGS " \
+${OBJECT_GEN_FLAGS} \
+")
+#-------------------
+# CXXFLAGS for cross
+#-------------------
+string(APPEND CMAKE_CXX_FLAGS " \
 ${OBJECT_GEN_FLAGS} \
 ")
 #-------------------
