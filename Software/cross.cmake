@@ -18,6 +18,12 @@
 # Windows Example -> set(TOOLCHAIN_PREFIX "C:/Program Files (x86)/GNU Tools ARM Embedded/9 2020-q2-update/")
 # Docker Example -> set(TOOLCHAIN_PREFIX "/toolchain/gcc-arm-none-eabi-9-2020-q2-update/")
 
+
+
+set(TOOLCHAIN_PREFIX "/Users/ivan/gcc-arm-none-eabi-10.3-2021.10")
+set(TOOLCHAIN_CPP_VERSION "10.3.1")
+INCLUDE_DIRECTORIES(${TOOLCHAIN_PREFIX}"/arm-none-eabi/include/c++/"${TOOLCHAIN_CPP_VERSION})
+
 if(NOT TOOLCHAIN_PREFIX)
     message(FATAL_ERROR "[ERRR] TOOLCHAIN_PREFIX not specified, please update the with compiler toolchain location")
 endif()
@@ -42,6 +48,11 @@ set(CMAKE_SIZE_UTIL ${TOOLCHAIN_BIN_DIR}/${CROSS_TOOLCHAIN}size${TOOLCHAIN_EXT} 
 set(CMAKE_C_GDB ${TOOLCHAIN_BIN_DIR}/${CROSS_TOOLCHAIN}gdb-py${TOOLCHAIN_EXT} CACHE INTERNAL "Debugger")
 SET(CMAKE_AR ${TOOLCHAIN_BIN_DIR}/${CROSS_TOOLCHAIN}gcc-ar${TOOLCHAIN_EXT} CACHE INTERNAL "Assembler")
 SET(CMAKE_RANLIB ${TOOLCHAIN_BIN_DIR}/${CROSS_TOOLCHAIN}gcc-ranlib${TOOLCHAIN_EXT} CACHE INTERNAL "Ranlib")
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CONFIG_LIB_CPLUSPLUS ON)
+set(CONFIG_NEWLIB_LIBC ON)
 
 #---------------------------------------------------------------------------------------
 # Creates output in hex format
