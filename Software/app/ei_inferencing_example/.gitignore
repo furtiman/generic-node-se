@@ -1,0 +1,7 @@
+# Model-specific files, at development copied from the
+# downloaded Edge Impulse C++ library
+Core/model-parameters/dsp_blocks.h
+Core/model-parameters/model_metadata.h
+Core/model-parameters/model_variables.h
+Core/tflite-model/trained_model_compiled.cpp
+Core/tflite-model/trained_model_compiled.h
