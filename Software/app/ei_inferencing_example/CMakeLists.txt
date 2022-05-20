@@ -1,40 +1,48 @@
 #-------------------
+# CFLAGS for cross
+#-------------------
+string(APPEND CMAKE_C_FLAGS "-DEI_PORTING_STM32_CUBEAI")
+#-------------------
+# CXXFLAGS for cross
+#-------------------
+string(APPEND CMAKE_CXX_FLAGS "-DEI_PORTING_STM32_CUBEAI")
+#-------------------
 # Main elf
 #-------------------
 file(GLOB MAIN_SRC
     "${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/*.c"
     "${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/*.cpp"
-    "${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core/edge-impulse-sdk/porting/stm32-cubeai/*.cpp"
-    "${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core/edge-impulse-sdk/dsp/kissfft/*.cpp"
-    "${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core/edge-impulse-sdk/dsp/dct/*.cpp"
-    "${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core/edge-impulse-sdk/dsp/memory.cpp"
     "${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core/tflite-model/*.cpp"
     "${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core/model-parameters/"
-    "${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core/edge-impulse-sdk/tensorflow/lite/kernels/*.cc"
-    "${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core/edge-impulse-sdk/tensorflow/lite/kernels/internal/*.cc"
-    "${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core/edge-impulse-sdk/tensorflow/lite/micro/kernels/*.cc"
-    "${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core/edge-impulse-sdk/tensorflow/lite/micro/*.cc"
-    "${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core/edge-impulse-sdk/tensorflow/lite/micro/memory_planner/*.cc"
-    "${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core/edge-impulse-sdk/tensorflow/lite/core/api/*.cc"
-    "${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core/edge-impulse-sdk/tensorflow/lite/c/common.c"
-    "${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core/edge-impulse-sdk/CMSIS/NN/Source/ActivationFunctions/*.c"
-    "${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core/edge-impulse-sdk/CMSIS/NN/Source/BasicMathFunctions/*.c"
-    "${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core/edge-impulse-sdk/CMSIS/NN/Source/ConcatenationFunctions/*.c"
-    "${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core/edge-impulse-sdk/CMSIS/NN/Source/ConvolutionFunctions/*.c"
-    "${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core/edge-impulse-sdk/CMSIS/NN/Source/FullyConnectedFunctions/*.c"
-    "${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core/edge-impulse-sdk/CMSIS/NN/Source/NNSupportFunctions/*.c"
-    "${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core/edge-impulse-sdk/CMSIS/NN/Source/PoolingFunctions/*.c"
-    "${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core/edge-impulse-sdk/CMSIS/NN/Source/ReshapeFunctions/*.c"
-    "${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core/edge-impulse-sdk/CMSIS/NN/Source/SoftmaxFunctions/*.c"
-    "${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core/edge-impulse-sdk/CMSIS/NN/Source/SVDFunctions/*.c"
-    "${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core/edge-impulse-sdk/CMSIS/DSP/Source/MatrixFunctions/*.c"
-    "${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core/edge-impulse-sdk/CMSIS/DSP/Source/BasicMathFunctions/*.c"
-    "${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core/edge-impulse-sdk/CMSIS/DSP/Source/FastMathFunctions/*.c"
-    "${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core/edge-impulse-sdk/CMSIS/DSP/Source/StatisticsFunctions/*.c"
-    "${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core/edge-impulse-sdk/CMSIS/DSP/Source/TransformFunctions/*fft*.c"
-    "${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core/edge-impulse-sdk/CMSIS/DSP/Source/CommonTables/*.c"
-    "${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core/edge-impulse-sdk/CMSIS/DSP/Source/TransformFunctions/*bit*.c"
-    "${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core/edge-impulse-sdk/CMSIS/DSP/Source/SupportFunctions/*.c"
+    "${PROJECT_SOURCE_DIR}/lib/edge-impulse-sdk/porting/stm32-cubeai/*.cpp"
+    "${PROJECT_SOURCE_DIR}/lib/edge-impulse-sdk/dsp/kissfft/*.cpp"
+    "${PROJECT_SOURCE_DIR}/lib/edge-impulse-sdk/dsp/dct/*.cpp"
+    "${PROJECT_SOURCE_DIR}/lib/edge-impulse-sdk/dsp/memory.cpp"
+    "${PROJECT_SOURCE_DIR}/lib/edge-impulse-sdk/tensorflow/lite/kernels/*.cc"
+    "${PROJECT_SOURCE_DIR}/lib/edge-impulse-sdk/tensorflow/lite/kernels/internal/*.cc"
+    "${PROJECT_SOURCE_DIR}/lib/edge-impulse-sdk/tensorflow/lite/micro/kernels/*.cc"
+    "${PROJECT_SOURCE_DIR}/lib/edge-impulse-sdk/tensorflow/lite/micro/*.cc"
+    "${PROJECT_SOURCE_DIR}/lib/edge-impulse-sdk/tensorflow/lite/micro/memory_planner/*.cc"
+    "${PROJECT_SOURCE_DIR}/lib/edge-impulse-sdk/tensorflow/lite/core/api/*.cc"
+    "${PROJECT_SOURCE_DIR}/lib/edge-impulse-sdk/tensorflow/lite/c/common.c"
+    "${PROJECT_SOURCE_DIR}/lib/edge-impulse-sdk/CMSIS/NN/Source/ActivationFunctions/*.c"
+    "${PROJECT_SOURCE_DIR}/lib/edge-impulse-sdk/CMSIS/NN/Source/BasicMathFunctions/*.c"
+    "${PROJECT_SOURCE_DIR}/lib/edge-impulse-sdk/CMSIS/NN/Source/ConcatenationFunctions/*.c"
+    "${PROJECT_SOURCE_DIR}/lib/edge-impulse-sdk/CMSIS/NN/Source/ConvolutionFunctions/*.c"
+    "${PROJECT_SOURCE_DIR}/lib/edge-impulse-sdk/CMSIS/NN/Source/FullyConnectedFunctions/*.c"
+    "${PROJECT_SOURCE_DIR}/lib/edge-impulse-sdk/CMSIS/NN/Source/NNSupportFunctions/*.c"
+    "${PROJECT_SOURCE_DIR}/lib/edge-impulse-sdk/CMSIS/NN/Source/PoolingFunctions/*.c"
+    "${PROJECT_SOURCE_DIR}/lib/edge-impulse-sdk/CMSIS/NN/Source/ReshapeFunctions/*.c"
+    "${PROJECT_SOURCE_DIR}/lib/edge-impulse-sdk/CMSIS/NN/Source/SoftmaxFunctions/*.c"
+    "${PROJECT_SOURCE_DIR}/lib/edge-impulse-sdk/CMSIS/NN/Source/SVDFunctions/*.c"
+    "${PROJECT_SOURCE_DIR}/lib/edge-impulse-sdk/CMSIS/DSP/Source/MatrixFunctions/*.c"
+    "${PROJECT_SOURCE_DIR}/lib/edge-impulse-sdk/CMSIS/DSP/Source/BasicMathFunctions/*.c"
+    "${PROJECT_SOURCE_DIR}/lib/edge-impulse-sdk/CMSIS/DSP/Source/FastMathFunctions/*.c"
+    "${PROJECT_SOURCE_DIR}/lib/edge-impulse-sdk/CMSIS/DSP/Source/StatisticsFunctions/*.c"
+    "${PROJECT_SOURCE_DIR}/lib/edge-impulse-sdk/CMSIS/DSP/Source/TransformFunctions/*fft*.c"
+    "${PROJECT_SOURCE_DIR}/lib/edge-impulse-sdk/CMSIS/DSP/Source/CommonTables/*.c"
+    "${PROJECT_SOURCE_DIR}/lib/edge-impulse-sdk/CMSIS/DSP/Source/TransformFunctions/*bit*.c"
+    "${PROJECT_SOURCE_DIR}/lib/edge-impulse-sdk/CMSIS/DSP/Source/SupportFunctions/*.c"
     "${PROJECT_SOURCE_DIR}/target/*.c"
     "${PROJECT_SOURCE_DIR}/lib/GNSE_BSP/*.c"
     )
@@ -52,10 +60,12 @@ target_include_directories(${PROJECT_NAME}.elf
     ${PROJECT_SOURCE_DIR}/app/ei_inferencing_example
     ${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/conf
     ${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core
-    ${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core/edge-impulse-sdk
-    ${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core/edge-impulse-sdk/porting
-    ${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core/edge-impulse-sdk/tensorflow/lite/micro
-    ${PROJECT_SOURCE_DIR}/app/ei_inferencing_example/Core/edge-impulse-sdk/CMSIS/DSP/Include
+    ${PROJECT_SOURCE_DIR}/lib/
+    ${PROJECT_SOURCE_DIR}/lib/edge-impulse-sdk
+    ${PROJECT_SOURCE_DIR}/lib/edge-impulse-sdk/porting
+    ${PROJECT_SOURCE_DIR}/lib/edge-impulse-sdk/tensorflow/lite/micro
+    ${PROJECT_SOURCE_DIR}/lib/edge-impulse-sdk/tensorflow/lite/c
+    ${PROJECT_SOURCE_DIR}/lib/edge-impulse-sdk/CMSIS/DSP/Include
     ${PROJECT_SOURCE_DIR}/lib/GNSE_BSP
     )
 target_link_libraries(${PROJECT_NAME}.elf

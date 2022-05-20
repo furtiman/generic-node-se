@@ -7,3 +7,7 @@
 [submodule "Software/lib/threadx"]
 	path = Software/lib/threadx
 	url = https://github.com/azure-rtos/threadx
+
+[submodule "Software/lib/edge-impulse-sdk"]
+	path = Software/lib/edge-impulse-sdk
+	url = https://github.com/edgeimpulse/inferencing-sdk-cpp.git
